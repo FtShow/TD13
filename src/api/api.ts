@@ -29,7 +29,10 @@ export const todoListAPI = {
     },
     updateTask : (todolistId: string, taskId: string, newTask: Task)=>{
         return instance.put<ResponseType<{item: TaskItem}>>(`/todo-lists/${todolistId}/tasks/${taskId}`, newTask)
-    }
+    },
+    deleteTask : (todolistId: string, taskId: string)=>{
+        return instance.delete<ResponseType>(`/todo-lists/${todolistId}/tasks/${taskId}`)
+    },
 }
 
 type TodoListType = {

@@ -84,15 +84,32 @@ export const UpdateTask = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
         const todoId = '7ef53040-89f6-4cef-bdcd-ba8397ffaead';
-        const taskId = 'e871b0ba-f2e8-42bf-9afc-ce919ef95f63';
+        const taskId = 'bc083855-874f-4e70-a5e1-dc0e2e5387dc';
         const newTask = {
-            title: 'zzzzz'
+            title: '00000000000000000000000'
         }
 
-      //  todoListAPI.createTask(todoId, newTaskTitle).then(r => setState(r.data.data.item))
+        //  todoListAPI.createTask(todoId, newTaskTitle).then(r => setState(r.data.data.item))
+        todoListAPI.updateTask(todoId, taskId, newTask).then(r => setState(r.data))
         todoListAPI.updateTask(todoId, taskId, newTask).then(r => console.log(r.data))
         // здесь мы будем делать запрос и ответ закидывать в стейт.
         // который в виде строки будем отображать в div-ке
     }, [])
     return <div>{JSON.stringify(state)}<br/></div>
+
+}
+
+    export const DeleteTask = () => {
+        const [state, setState] = useState<any>(null)
+        useEffect(() => {
+            const todoId = '7ef53040-89f6-4cef-bdcd-ba8397ffaead';
+            const taskId = '4cb26386-4541-4b96-9e4d-d2dd4f7859fe';
+
+
+            //  todoListAPI.createTask(todoId, newTaskTitle).then(r => setState(r.data.data.item))
+            todoListAPI.deleteTask(todoId, taskId).then(r => setState(r.data))
+            // здесь мы будем делать запрос и ответ закидывать в стейт.
+            // который в виде строки будем отображать в div-ке
+        }, [])
+        return <div>{JSON.stringify(state)}<br/></div>
 }
